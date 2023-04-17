@@ -1,4 +1,5 @@
 export class Sorter {
+
   /**
    * Note about the following commented out constructor. There is nothing
    * wrong with the fomatting and setup of the following class property
@@ -36,12 +37,12 @@ export class Sorter {
    */
 
   // The following should be the same as the above constructor, but simpler.
+
   constructor(public collection: number[]) {}
 
   sort(): void {
     // this is equivalent but more concise to the above comment
     const { length } = this.collection;
-    console.log("INPUT COLLECTION: ", [...this.collection]);
 
     // nested for loops to do our bubble sort
     for (let i = 0; i < length; i++) {
