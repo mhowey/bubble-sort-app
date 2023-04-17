@@ -1,17 +1,15 @@
 export class Sorter {
-  collection: number[];
-  constructor(collection: number[]) {
-    this.collection = collection;
-  }
+  // collection: number[];
+  // constructor(collection: number[]) {
+  //   this.collection = collection;
+  // }
 
-  // the following should be the same as the above construction, but simpler?
-  // TODO: doesn't work when imported into index.ts...
-  // constructor(public collection: number[]) {}
+  // the following should be the same as above constructor, but simpler
+  constructor(public collection: number[]) {}
 
   sort(): void {
     // this is equivalent but more concise to the above comment
     const { length } = this.collection;
-    console.log("INPUT COLLECTION: ", [...this.collection]);
 
     // nested for loops to do our bubble sort
     for (let i = 0; i < length; i++) {

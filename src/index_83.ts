@@ -19,3 +19,4 @@ sorter.sort();
  * ...which is the correct sorting order we would expect from our bubble sort!
  */
 console.log("OUTPUT COLLECTION: ", sorter.collection);
+

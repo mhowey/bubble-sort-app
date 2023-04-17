@@ -6,7 +6,9 @@
   "scripts": {
     "start:build": "tsc -w",
     "start:run": "nodemon build/index.js",
-    "start": "concurrently npm:start:*"
+    "start:run_83": "nodemon build/index_83.js",
+    "start": "concurrently npm:start:*",
+    "start_83": "concurrently npm:start:build npm:start:run_83*"
   },
   "author": "",
   "license": "ISC",
