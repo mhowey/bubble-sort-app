@@ -1,3 +1,12 @@
+/**
+ * ! You can find the old versions of this Sorter inside the "/sorter_version" folder in
+ * ! in the root of the project. They are named using Sorter_* as the format with
+ * ! the number appearing after the underscore corresponding to the lesson in
+ * ! SG's Tutorial Series as it was structured when I took it. I tried to keep
+ * ! accurate notes that help summarize the steps taken in the tutorial for my
+ * ! future reference.
+ */
+
 interface ISortable {
   length: number;
   content: number[];
@@ -38,7 +47,6 @@ export class Sorter {
         // ! change out the following with our class instance
         // if (this.collection[j] > this.collection[j + 1]) {
 
-        console.log("data => ", this.collection.data);
         if (this.collection.compare(j, j + 1)) {
           /**
            * We want to remove this logic and put it out in it's own class
