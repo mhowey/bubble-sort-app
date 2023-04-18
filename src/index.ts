@@ -1,11 +1,5 @@
-import { NumbersCollection } from "./NumbersCollection"; // comments...
+import { NumbersCollection } from "./NumbersCollection";
 import { Sorter } from "./Sorter";
-
-/** importing a specific version of Sorter after lesson 83...
- * ? Here we are importing the sepecific Sorter class as it is
- * ? represented after the end of lesson 83.
- * ! Note: the format of the filename with underscore "_83"
- */
 
 const arrayOfNumbers = [22, 100, 12, 12.4, -12, 11, 10, -2, 0, -5, 3];
 const numbersCollection = new NumbersCollection(arrayOfNumbers);
@@ -25,4 +19,4 @@ sorter.sort();
  * `OUTPUT COLLECTION:  [-12, -5,  -2,  0, 3, 10,  11, 12, 12.4, 22, 100]
  * ...which is the correct sorting order we would expect from our bubble sort!
  */
-console.log("OUTPUT COLLECTION: ", sorter.collection.data);
+console.log("OUTPUT COLLECTION: ", sorter.collection.content);

@@ -1,5 +1,10 @@
 /**
- * properties here and constructor combined
+ * We want this class to be eligible to be used for sorting so we need to make
+ * sure that is contains all the necessary properties of the ISortable interface
+ */
+
+/**
+ * NumbersCollection extends Array or typescript complains
  */
 export class NumbersCollection extends Array {
   constructor(public data: number[]) {
