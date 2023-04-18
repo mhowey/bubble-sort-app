@@ -49,9 +49,9 @@ export class Sorter {
       for (let j = 0; j < length - i - 1; j++) {
         // If collection is an array of numbers
         if (this.collection[j] > this.collection[j + 1]) {
-          const LeftSide = this.collection[j];
-          this.collection[j] = this.collection[j + 1];
-          this.collection[j + 1] = LeftSide;
+          // const LeftSide = this.collection[j];
+          // this.collection[j] = this.collection[j + 1];
+          // this.collection[j + 1] = LeftSide;
         }
         // If collection is a string do this instead..
         // ~~ logic to compare and swap characters in a string
