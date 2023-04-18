@@ -25,4 +25,4 @@ sorter.sort();
  * `OUTPUT COLLECTION:  [-12, -5,  -2,  0, 3, 10,  11, 12, 12.4, 22, 100]
  * ...which is the correct sorting order we would expect from our bubble sort!
  */
-console.log("OUTPUT COLLECTION: ", sorter.collection.data);
+console.log("OUTPUT COLLECTION: ", sorter.collection.content);

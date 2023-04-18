@@ -1,26 +1,23 @@
-import { NumbersCollection } from "./NumbersCollection";
-
+interface ISortable {
+  length: number;
+  content: number[];
+  compare(leftIndex: number, rightIndex: number): boolean;
+  swap(leftIndex: number, rightIndex: number): void;
+}
 export class Sorter {
-  /** Refactor with New Class
-   * Up to now, this sorter class is very specific to sorting an array
-   * of numbers and therefore it is not really re-usable for the other
-   * data types that we are going to need to sort such as strings, arrays
-   * of strings, etc.
-   * ! We want the Sorter class to be 100% generic and work with different data types!
-   * The for loops are going to be staying the same no matter the data
-   * structure being used. The only thing that needs to be "custom" per data
-   * structure is:
-   * ! the Comparison logic ...and...
-   * ! the Swapping logic
+  /** We need to add an interface
+   * ? What do we need to sort a collection?
+   * :: 1. we need a collection of data
+   * :: 2. we need a length property, so we know how many times to iterate
+   * :: 3. we need a compare method, so we know what two values we're comparing (i.e. left and right)
+   * :: 4. we need a swap method, so we can move the lower values to the left when needed
    *
-   * ? How will we approach handling this?
-   * :: We will be creating new classes that handle the different approaches
-   * :: needed for sorting different data structures.
-   *
+   * ! Our interface will tell other types that they can be sorted no matter what kind of
+   * ! type they are as long as they satisfy the abover needed 4 things!
    *
    * @param collection
    */
-  constructor(public collection: NumbersCollection) {}
+  constructor(public collection: ISortable) {}
 
   /** Remove Type Guards
    * ? In the refactor here, we'll be removing the type guards added earlier...
