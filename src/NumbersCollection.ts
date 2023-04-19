@@ -1,18 +1,16 @@
 /**
+ * NumbersCollection class is intentionally implementing the ISortable interface.
  * We want this class to be eligible to be used for sorting so we need to make
- * sure that is contains all the necessary properties of the ISortable interface
+ * sure that it contains all the necessary properties and methods in the ISortable interface
  */
+export class NumbersCollection {
+  constructor(public data: number[]) {}
 
-/**
- * NumbersCollection extends Array or typescript complains
- */
-export class NumbersCollection extends Array {
-  constructor(public data: number[]) {
-    super();
-  }
-
+  /** Retrieving the data
+   *  @returns this.data
+   */
   get content() {
-    return this.data;
+    return this.data; // initialized in our constructor above
   }
 
   /** Getter for length property
@@ -32,19 +30,22 @@ export class NumbersCollection extends Array {
     return this.data.length;
   }
 
-  /** leftIndex and rightIndex
-   *
+  /** note about leftIndex and rightIndex
    * ? What are "leftIndex" and "rightIndex" for?
+   *
    * :: Given the following array of data that is being sorted:
-   * `["A", "b", "a", "B", "c", "D"]
-   * ::|_______| -> leftIndex = 0, rightIndex = 1;
+   *
+   * ` ["A", "b", "a", "B", "c", "D"]
+   *
+   * :: |_______| -> leftIndex = 0 ("A"), rightIndex = 1 ("b");
    * :: So yes, this could be shortened to only use leftIndex and
    * :: simply add one, but to be explicit, let's leave both for DX.
    * ! Note: tie-in with the original logic
    * ? Which part of the original logic does this pertain to?
    * ` this.collection[j] > this.collection[j + 1]
    */
-  /**
+
+  /** JSDoc
    *
    * @param leftIndex
    * @param rightIndex
@@ -54,7 +55,7 @@ export class NumbersCollection extends Array {
     return this.data[leftIndex] > this.data[rightIndex];
   }
 
-  /**
+  /** JSDoc
    *
    * @param leftIndex
    * @param rightIndex
