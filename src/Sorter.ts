@@ -8,8 +8,8 @@
  */
 
 interface ISortable {
+  content: any;
   length: number;
-  content: number[];
   compare(leftIndex: number, rightIndex: number): boolean;
   swap(leftIndex: number, rightIndex: number): void;
 }
@@ -39,7 +39,6 @@ export class Sorter {
      */
 
     // nested for loops to do our bubble sort
-    console.log("DATA:: ", this.collection.content);
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
         // ! REMOVE the type guard for Array...
@@ -48,12 +47,6 @@ export class Sorter {
         // if (this.collection[j] > this.collection[j + 1]) {
 
         if (this.collection.compare(j, j + 1)) {
-          /**
-           * We want to remove this logic and put it out in it's own class
-           */
-          // const LeftSide = this.collection[j];
-          // this.collection[j] = this.collection[j + 1];
-          // this.collection[j + 1] = LeftSide;
           this.collection.swap(j, j + 1);
         }
 
