@@ -34,14 +34,10 @@ export class Sorter {
   sort(): void {
     const { length } = this.collection;
 
-    /** Remove Type Guards
-     * ! In the refactor, we're be removing the type guards added earlier...
-     */
-
     // nested for loops to do our bubble sort
     for (let i = 0; i < length; i++) {
       for (let j = 0; j < length - i - 1; j++) {
-        // ! REMOVE the type guard for Array...
+        // ! REMOVE the type guard for Array...we don't need it anymore
         // if (this.collection instanceof Array) {
         // ! change out the following with our class instance
         // if (this.collection[j] > this.collection[j + 1]) {
@@ -50,7 +46,8 @@ export class Sorter {
           this.collection.swap(j, j + 1);
         }
 
-        // ! REMOVE guard for string...and any logic.
+        // ! REMOVE guard for string...and associated logic.
+        // ! String sorting implementation is wrapped up in the CharactersCollection class
         // if (typeof this.collection === "string") {}
       }
     }
