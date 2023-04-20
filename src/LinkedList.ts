@@ -1,6 +1,9 @@
-/**
+import { Sorter } from "./Sorter";
+
+/** Make LinkedList Eligible for Sorting
  * We want this class to be eligible to be used for sorting so we need to make
- * sure that is contains all the necessary properties of the ISortable interface
+ * // sure that is contains all the necessary properties of the ISortable interface
+ * sure that it implements all of the abstract methods defined in Sorter()
  */
 
 class Node {
@@ -8,7 +11,18 @@ class Node {
   constructor(public data: number) {}
 }
 
-export class LinkedList {
+/** QUESTIONS and ANSWERS
+ * ? What do we get by extending the abstract class Sorter?
+ * :: We get the sort() method that is in the abstract class and we also
+ * :: get checking to make sure that we are implementing all of the
+ * :: required abstract classes in the inheriting class.
+ *
+ * ? What restrictions doe sthis put on the inheriting class (i.e. NumbersCollection)
+ * :: It just requires that the child class implement the abstract
+ * :: methods from the parent class. This is similar to how an
+ * :: interface works in some ways (see comments on line 4)
+ */
+export class LinkedList extends Sorter {
   head: Node | null = null;
 
   get content() {
@@ -31,7 +45,7 @@ export class LinkedList {
     }
 
     let tail = this.head;
-    // while tail has a defined "next" property, not undefined
+
     while (tail.next) {
       tail = tail.next;
     }
@@ -95,18 +109,4 @@ export class LinkedList {
       node = node.next;
     }
   }
-  /** ANSWER: can't return anything
-   * :: Yes, the above block does return. But notice there is NOTHING after the return
-   * :: other than the semi-colon? This is just being used as an "escape hatch" to
-   * :: end execution of the function early and make sure it doesn't continue on, it's
-   * :: being used in a similar way to how a type guard might be used.
-   */
-  // constructor(public data: number[]) {}
-
-  // get content(): any {
-  //   return "the content here";
-  // }
-  // get length(): number {
-  //   return this.data.length;
-  // }
 }

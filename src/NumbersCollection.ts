@@ -1,10 +1,14 @@
+import { Sorter } from "./Sorter";
+
 /**
  * NumbersCollection class is intentionally implementing the ISortable interface.
  * We want this class to be eligible to be used for sorting so we need to make
  * sure that it contains all the necessary properties and methods in the ISortable interface
  */
-export class NumbersCollection {
-  constructor(public data: number[]) {}
+export class NumbersCollection extends Sorter {
+  constructor(public data: number[]) {
+    super();
+  }
 
   /** Retrieving the data
    *  @returns this.data

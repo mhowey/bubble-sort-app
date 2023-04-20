@@ -5,34 +5,46 @@
  * ! SG's Tutorial Series as it was structured when I took it. I tried to keep
  * ! accurate notes that help summarize the steps taken in the tutorial for my
  * ! future reference.
+ *
+ * :: This version will refactor to allow the Sorter class to extend each of the individual
+ * :: data structure classes so that instead of creating an instance of Sorter and feeding
+ * :: an instance of data into the sorter, we can simply create an instance of the
+ * :: data structure like this:
+ *
+ * ` const myLinkedList = new CharactersCollection("zcdEDSZaasldk");
+ * :: and then to sort the above...we can simply call sort directly from myLinkedList instance:
+ * ` const mySortedList = myLinkedList.sort();
+ * :: this is more intuitive than passing instances of classes into the Sorter class!
+ * :: The whole purpose of this final refactor is to make this Sorter work like that.
+ * :: this is a who different experience
  */
 
-interface ISortable {
-  content: any;
-  length: number;
-  compare(leftIndex: number, rightIndex: number): boolean;
-  swap(leftIndex: number, rightIndex: number): void;
-}
-export class Sorter {
-  /** We need to add an interface
-   * ? What do we need to sort a collection?
-   * :: 1. we need a collection of data
-   * :: 2. we need a length property, so we know how many times to iterate
-   * :: 3. we need a compare method, so we know what two values we're comparing (i.e. left and right)
-   * :: 4. we need a swap method, so we can move the lower values to the left when needed
-   *
-   * ! Our interface will tell other types that they can be sorted no matter what kind of
-   * ! type they are as long as they satisfy the abover needed 4 things!
+// interface ISortable {
+//   content: any;
+//   length: number;
+//   compare(leftIndex: number, rightIndex: number): boolean;
+//   swap(leftIndex: number, rightIndex: number): void;
+// }
+export abstract class Sorter {
+  abstract compare(leftIndex: number, rightIndex: number): boolean;
+  abstract swap(leftIndex: number, rightIndex: number): void;
+  abstract length: number;
+
+  /** We need to turn Sorter into an abstract class
+   * ? What is an abstract class?
+   * :: 1. an abstract class cannot be directly instantiated with the "new" keyword
+   * :: 2. an abstract class must be inherited by a child class that implements the functions and properties used by the abstract class
+   * :: 3. any time a child class inherits an abstract class, TypeScript enforces that the child class has implementations of the
+   * ::    properties and methods that are required by the abstract parent class.
    *
    * @param collection
    */
-  constructor(public collection: ISortable) {}
 
   /** Remove Type Guards
    * ? In the refactor here, we'll be removing the type guards added earlier...
    */
   sort(): void {
-    const { length } = this.collection;
+    const { length } = this;
 
     // nested for loops to do our bubble sort
     for (let i = 0; i < length; i++) {
@@ -42,8 +54,8 @@ export class Sorter {
         // ! change out the following with our class instance
         // if (this.collection[j] > this.collection[j + 1]) {
 
-        if (this.collection.compare(j, j + 1)) {
-          this.collection.swap(j, j + 1);
+        if (this.compare(j, j + 1)) {
+          this.swap(j, j + 1);
         }
 
         // ! REMOVE guard for string...and associated logic.
